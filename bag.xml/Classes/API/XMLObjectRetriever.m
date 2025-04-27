@@ -27,7 +27,7 @@
            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
            if(data) {
                NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-               NSLog(@"%@", response);
+               NSLog(@"%@ssssss", response);
            }
        });
         

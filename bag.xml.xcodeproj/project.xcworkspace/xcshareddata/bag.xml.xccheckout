@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>946BC9E1-580A-406E-A5AF-7E4DC5AB3FEE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bag.xml</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4A452286-54E2-417A-B422-857BBD20F5FD</key>
+		<string>https://github.com/bag-xml/bag.xml-Blog</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bag.xml.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4A452286-54E2-417A-B422-857BBD20F5FD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bag-xml/bag.xml-Blog</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4A452286-54E2-417A-B422-857BBD20F5FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4A452286-54E2-417A-B422-857BBD20F5FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bag.xml-Blog</string>
+		</dict>
+	</array>
+</dict>
+</plist>
