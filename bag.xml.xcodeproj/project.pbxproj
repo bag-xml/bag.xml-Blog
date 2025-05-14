@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0A1349742DB147FE00A45FA4 /* XMLKeychainUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1349732DB147FE00A45FA4 /* XMLKeychainUtility.m */; };
+		0A14E2AD2DD0FC1200F72409 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A14E2AC2DD0FC1200F72409 /* Base64.m */; };
+		0A14E2B02DD0FF5400F72409 /* XMLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A14E2AF2DD0FF5400F72409 /* XMLUser.m */; };
+		0A14E2B32DD1005E00F72409 /* XMLObjectTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A14E2B22DD1005E00F72409 /* XMLObjectTestView.m */; };
 		0A412B482DAAB25100867AF7 /* XMLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A412B472DAAB25100867AF7 /* XMLUtility.m */; };
 		0A8C63912DBA56AC00BB864F /* XMLObjectRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C63902DBA56AC00BB864F /* XMLObjectRetriever.m */; };
 		0A8C63932DBA577300BB864F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8C63922DBA577300BB864F /* CFNetwork.framework */; };
 		0AB0DD852DBE52B400136528 /* XMLCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0DD832DBE52B400136528 /* XMLCoreDataModel.xcdatamodeld */; };
+		0ACB92842DD4AA700009FDD2 /* XMLPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB92832DD4AA700009FDD2 /* XMLPost.m */; };
 		5B0964392C283695003FDF15 /* PlaceholderJolt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0964382C283695003FDF15 /* PlaceholderJolt.png */; };
 		5B15B8DE2C3403F2003EA53D /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15B8D72C3403F2003EA53D /* BButton.m */; };
 		5B15B8DF2C3403F2003EA53D /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15B8D92C3403F2003EA53D /* NSString+FontAwesome.m */; };
@@ -81,12 +85,20 @@
 /* Begin PBXFileReference section */
 		0A1349722DB147FE00A45FA4 /* XMLKeychainUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLKeychainUtility.h; sourceTree = "<group>"; };
 		0A1349732DB147FE00A45FA4 /* XMLKeychainUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLKeychainUtility.m; sourceTree = "<group>"; };
+		0A14E2AB2DD0FC1200F72409 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		0A14E2AC2DD0FC1200F72409 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		0A14E2AE2DD0FF5400F72409 /* XMLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLUser.h; sourceTree = "<group>"; };
+		0A14E2AF2DD0FF5400F72409 /* XMLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLUser.m; sourceTree = "<group>"; };
+		0A14E2B12DD1005E00F72409 /* XMLObjectTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLObjectTestView.h; sourceTree = "<group>"; };
+		0A14E2B22DD1005E00F72409 /* XMLObjectTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLObjectTestView.m; sourceTree = "<group>"; };
 		0A412B462DAAB25100867AF7 /* XMLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLUtility.h; sourceTree = "<group>"; };
 		0A412B472DAAB25100867AF7 /* XMLUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLUtility.m; sourceTree = "<group>"; };
 		0A8C638F2DBA56AC00BB864F /* XMLObjectRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLObjectRetriever.h; sourceTree = "<group>"; };
 		0A8C63902DBA56AC00BB864F /* XMLObjectRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLObjectRetriever.m; sourceTree = "<group>"; };
 		0A8C63922DBA577300BB864F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0AB0DD842DBE52B400136528 /* XMLCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XMLCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0ACB92822DD4AA700009FDD2 /* XMLPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLPost.h; sourceTree = "<group>"; };
+		0ACB92832DD4AA700009FDD2 /* XMLPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLPost.m; sourceTree = "<group>"; };
 		5B0964382C283695003FDF15 /* PlaceholderJolt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceholderJolt.png; sourceTree = "<group>"; };
 		5B15B8D62C3403F2003EA53D /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		5B15B8D72C3403F2003EA53D /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
@@ -177,6 +189,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A14E2AA2DD0FC1200F72409 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				0A14E2AB2DD0FC1200F72409 /* Base64.h */,
+				0A14E2AC2DD0FC1200F72409 /* Base64.m */,
+			);
+			name = Base64;
+			path = "../../../ChatGPT-for-Legacy-iOS/ChatGPT/Libraries/Base64";
+			sourceTree = "<group>";
+		};
 		0A412B442DAAAD3700867AF7 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +208,10 @@
 				0A1349732DB147FE00A45FA4 /* XMLKeychainUtility.m */,
 				0A8C638F2DBA56AC00BB864F /* XMLObjectRetriever.h */,
 				0A8C63902DBA56AC00BB864F /* XMLObjectRetriever.m */,
+				0A14E2AE2DD0FF5400F72409 /* XMLUser.h */,
+				0A14E2AF2DD0FF5400F72409 /* XMLUser.m */,
+				0ACB92822DD4AA700009FDD2 /* XMLPost.h */,
+				0ACB92832DD4AA700009FDD2 /* XMLPost.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -193,6 +219,8 @@
 		0A412B452DAAAD4100867AF7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A14E2B12DD1005E00F72409 /* XMLObjectTestView.h */,
+				0A14E2B22DD1005E00F72409 /* XMLObjectTestView.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -474,6 +502,7 @@
 		5B6C2E2D2C231C5E00CE7732 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				0A14E2AA2DD0FC1200F72409 /* Base64 */,
 				5B25942C2C380DC20081AD40 /* SVProgressHUD */,
 				5B15B8D52C3403F2003EA53D /* BButton */,
 			);
@@ -639,15 +668,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1349742DB147FE00A45FA4 /* XMLKeychainUtility.m in Sources */,
+				0A14E2B32DD1005E00F72409 /* XMLObjectTestView.m in Sources */,
 				5B6C2E2B2C231C4C00CE7732 /* main.m in Sources */,
 				5B6C2E2A2C231C4C00CE7732 /* XMLAppDelegate.m in Sources */,
 				0A8C63912DBA56AC00BB864F /* XMLObjectRetriever.m in Sources */,
+				0A14E2B02DD0FF5400F72409 /* XMLUser.m in Sources */,
 				0A412B482DAAB25100867AF7 /* XMLUtility.m in Sources */,
 				5B2594342C380DC20081AD40 /* SVProgressHUD.m in Sources */,
 				0AB0DD852DBE52B400136528 /* XMLCoreDataModel.xcdatamodeld in Sources */,
+				0ACB92842DD4AA700009FDD2 /* XMLPost.m in Sources */,
 				5B15B8E12C3403F2003EA53D /* UIColor+BButton.m in Sources */,
 				5B15B8DE2C3403F2003EA53D /* BButton.m in Sources */,
 				5B15B8DF2C3403F2003EA53D /* NSString+FontAwesome.m in Sources */,
+				0A14E2AD2DD0FC1200F72409 /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

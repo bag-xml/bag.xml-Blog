@@ -12,6 +12,8 @@
 	<dict>
 		<key>4A452286-54E2-417A-B422-857BBD20F5FD</key>
 		<string>https://github.com/bag-xml/bag.xml-Blog</string>
+		<key>B690B00D-C672-475D-8EF7-EC64DBEEBE6B</key>
+		<string>https://github.com/bag-xml/ChatGPT-for-Legacy-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>bag.xml.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>4A452286-54E2-417A-B422-857BBD20F5FD</key>
 		<string>../..</string>
+		<key>B690B00D-C672-475D-8EF7-EC64DBEEBE6B</key>
+		<string>../../../ChatGPT-for-Legacy-iOS</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/bag-xml/bag.xml-Blog</string>
@@ -35,6 +39,14 @@
 			<string>4A452286-54E2-417A-B422-857BBD20F5FD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>bag.xml-Blog</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B690B00D-C672-475D-8EF7-EC64DBEEBE6B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ChatGPT-for-Legacy-iOS</string>
 		</dict>
 	</array>
 </dict>

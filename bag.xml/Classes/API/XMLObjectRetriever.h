@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMLUtility.h"
 #import "XMLAppDelegate.h"
 
 @interface XMLObjectRetriever : NSObject
 
 @property bool successfullyAuthenticated;
 @property bool hasUIDAuthBehindItself;
-
 + (BOOL)checkForAuth;
 + (void)initObjRetrieval;
 @end

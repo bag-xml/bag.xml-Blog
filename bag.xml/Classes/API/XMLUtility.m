@@ -82,6 +82,7 @@
     return;
 }
 
+
 + (void)alert:(NSString*)title withMessage:(NSString*)message{
 	dispatch_async(dispatch_get_main_queue(), ^{
 		UIAlertView *alert = [UIAlertView.alloc

@@ -14,6 +14,10 @@
 
 @implementation XMLAppDelegate
 
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if ([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] == nil) {
@@ -56,6 +60,54 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    // Create managed object model if it's not already created
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext.persistentStoreCoordinator = coordinator;
+    }
+    return _managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"XMLCoreDataModel" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"xgold.sqlite"];
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort(); // Handle error appropriately
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (NSURL *)applicationDocumentsDirectory {
+    // The directory where the app's documents are stored (this is the directory Core Data will use to store the SQLite file)
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths lastObject];
+    return [NSURL fileURLWithPath:documentsDirectory];
 }
 
 //whenever app resumes make it send STATUS_RESURRECT updates which are pushed via nsnotification, app will request server with one peculiar request and then update all its data, then update the table view(s) and dictionaries, objects, etc. all that, in a fraction of a secomd. we are smart!!!!111
