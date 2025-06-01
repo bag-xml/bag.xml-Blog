@@ -10,4 +10,15 @@
 
 @implementation XMLPost
 
+
+/*
+ 
+ TYPE AUFKLÄRUNG
+ 
+ type 1: uhhhhhhh, regular blog posts
+ type 2: Rapid News ((NORMAL))
+ type 3: New Release (beautiful banner)
+ 
+ 
+ */
 @end

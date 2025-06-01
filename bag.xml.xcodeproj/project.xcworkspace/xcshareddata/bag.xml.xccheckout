@@ -21,6 +21,8 @@
 	<dict>
 		<key>4A452286-54E2-417A-B422-857BBD20F5FD</key>
 		<string>../..</string>
+		<key>7CCE70A4-8DE3-4751-8F81-4D0079FD9941</key>
+		<string>../../../../bag.xml-v1.0.xml</string>
 		<key>B690B00D-C672-475D-8EF7-EC64DBEEBE6B</key>
 		<string>../../../ChatGPT-for-Legacy-iOS</string>
 	</dict>
@@ -39,6 +41,14 @@
 			<string>4A452286-54E2-417A-B422-857BBD20F5FD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>bag.xml-Blog</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7CCE70A4-8DE3-4751-8F81-4D0079FD9941</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bag.xml-v1.0.xml</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

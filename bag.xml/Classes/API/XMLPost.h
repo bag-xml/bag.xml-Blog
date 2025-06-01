@@ -19,8 +19,11 @@
 @property NSString *summary;
 @property NSString *text;
 @property NSString *title;
+@property NSString *authorName;
 
 @property int type;
+@property bool type2;
 @property int postID;
 @property int authorID;
+@property int tCH;
 @end

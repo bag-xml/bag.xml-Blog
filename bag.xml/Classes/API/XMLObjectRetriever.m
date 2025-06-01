@@ -4,6 +4,7 @@
 //
 //  Created by XML on 24/04/25.
 //  Copyright (c) 2025 Daphne Coemen. All rights reserved.
+//  hell class fuck this shit fuck this shit
 //
 
 #import "XMLObjectRetriever.h"
@@ -14,7 +15,9 @@
 + (void)initObjRetrieval {
     //getALL getPosts, getUsers, getValidVersions, anything, all separate.
     if([XMLObjectRetriever checkForAuth] == YES) {
+        NSLog(@"Auth Check Success");
        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
            NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/total?a=%@&id=%@", kAPIURL, CurrentVersionAmalgumHash, [XMLKeychainUtility loadStringForKey:@"uniqueAppID"]]];
            NSURLResponse *response;
            NSError *error;
@@ -23,8 +26,8 @@
            [request setURL:randomEndpoint];
            [request setHTTPMethod:@"GET"];
            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-           
-           NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+           NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error]; //wtf
            if(data) {
                NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                if([response[@"success"] boolValue] == NO) {
@@ -34,7 +37,7 @@
                    bool overlap = false;
                    NSArray *usersArray = response[@"data"][@"users"];
                    NSArray *postsArray = response[@"data"][@"posts"];
-                   
+
                    XMLAppDelegate *appDelegate = (XMLAppDelegate *)[[UIApplication sharedApplication] delegate];
                    NSManagedObjectContext *context = appDelegate.managedObjectContext;
                    
@@ -76,8 +79,9 @@
                            post = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
                            overlap = NO;
                        }
-                       
-                       [post setValue:postDict[@"author"] forKey:@"author"];
+                       NSDictionary *authorContent = [postDict objectForKey:@"author"];
+                       [post setValue:postDict[@"authorID"] forKey:@"author"];
+                       [post setValue:authorContent[@"displayName"] forKey:@"authorName"];
                        [post setValue:postDict[@"date"] forKey:@"date"];
                        [post setValue:postDict[@"image"] forKey:@"image"]; //b64str
                        [post setValue:postDict[@"isFeatured"] forKey:@"isFeatured"]; //b
@@ -95,39 +99,23 @@
                    if ([context hasChanges]) {
                        [context save:&saveError];
                        if(overlap == YES) {
-                           NSLog(@"psss");[NSNotificationCenter.defaultCenter postNotificationName:@"REFRESH" object:nil];
+                           
+                           NSLog(@"New things :: Send Refresh");[NSNotificationCenter.defaultCenter postNotificationName:@"REFRESH" object:nil];
+                       } else if(overlap == NO) {
+                           NSLog(@"Send Refresh despite no overlap");
+                           [NSNotificationCenter.defaultCenter postNotificationName:@"REFRESH" object:nil];
+                           [XMLUtility alert:@"return YES" withMessage:@"return 0"];
                        }
-                       
                    }
-
-                   
-                   /*
-                   for (NSDictionary *postDict in postsArray) {
-                       //NSLog(@"%@", postDict);
-                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"postID == %@", postDict[@"postID"]];
-                       
-                       NSArray *existingPost = [context executeFetchRequest:fetchRequest error:&error];
-                       NSManagedObject *post = nil;
-                       
-                       if (existingPost.count > 0) {
-                           // udpate
-                           post = existingPost.firstObject;
-                       } else {
-                           post = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
-                       }
-                       
-                       
-                       //[post setValue:postDict[@"displayName"] forKey:@"displayName"];*/
-                       
-                   //}
-
+                   //NSLog(@"r %@", response);
                }
+           } else if(!data) {
+               [XMLUtility alert:@"Error" withMessage:@"Please check your internet connection."];
            }
        });
         
     } else {
-        [XMLUtility alert:@"return 0" withMessage:@"return 0"];
+        [XMLUtility alert:@"Authentication error" withMessage:@"Wipe keychain and re-install app"];
         return;
     }
 }
@@ -139,12 +127,11 @@
         [XMLUtility alert:@"Alert" withMessage:@"uid op code died"];
         return NO;
     } else if([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] != nil) {
-        NSLog(@"aöove");
         return YES;
     } else {
         return NO;
     }
-    return nil;
+    //return nil;
 }
 
 @end

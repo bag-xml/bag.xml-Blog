@@ -15,6 +15,6 @@
 @property NSString *username;
 @property NSString *displayName;
 @property UIImage *avatar;
-@property bool *verified;
+@property bool verified;
 
 @end

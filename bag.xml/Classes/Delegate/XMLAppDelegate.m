@@ -20,12 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [UINavigationBar.appearance setBackgroundImage:[UIImage imageNamed:@"DarkUITitleBarBG"] forBarMetrics:UIBarMetricsDefault];
+    //[[UIBarButtonItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1.0]} forState:UIControlStateNormal];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"D-UITabBarBG"]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"D-ControlState"]];
+    
     if ([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] == nil) {
         [XMLUtility FLSetSID];
         [XMLUtility alert:@"Test" withMessage:[NSString stringWithFormat:@"%@\n\n%@", [XMLKeychainUtility loadStringForKey:@"uniqueAppID"], [XMLKeychainUtility loadStringForKey:@"devUUID"]]];
     } else if([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] != nil) {
         //Update check
-        [XMLUtility alert:@"Test ! Success" withMessage:[NSString stringWithFormat:@"%@\n\n%@", [XMLKeychainUtility loadStringForKey:@"uniqueAppID"], [XMLKeychainUtility loadStringForKey:@"devUUID"]]];
         NSLog(@"App is authenticated");
         //leave this here temporarily
         [XMLUtility checkForAppUpdate];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XMLUtility.h"
 #import "XMLUser.h"
-
+#import "XMLPost.h"
 @interface XMLObjectTestView : UITableViewController
 
 @property NSMutableArray* users;

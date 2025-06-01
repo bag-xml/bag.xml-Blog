@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
     
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changeDetected) name:@"RESFRESH" object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changeDetected) name:@"REFRESH" object:nil];
     
     XMLAppDelegate *appDelegate = (XMLAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = appDelegate.managedObjectContext;
@@ -47,12 +47,12 @@
 
 - (void)changeDetected {
     NSLog(@"Change detected, updating user data)");
-    self.users = nil;
-    self.users = [NSMutableArray array];
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     XMLAppDelegate *appDelegate = (XMLAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = appDelegate.managedObjectContext;
     
+    self.users = [NSMutableArray array];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES]];
     NSArray *fetchedUsers = [context executeFetchRequest:fetchRequest error:nil];
     for(XMLUser *user in fetchedUsers) {
