@@ -37,7 +37,8 @@
                    bool overlap = false;
                    NSArray *usersArray = response[@"data"][@"users"];
                    NSArray *postsArray = response[@"data"][@"posts"];
-
+                   NSArray *appsArray = response[@"data"][@"apps"];
+                   
                    XMLAppDelegate *appDelegate = (XMLAppDelegate *)[[UIApplication sharedApplication] delegate];
                    NSManagedObjectContext *context = appDelegate.managedObjectContext;
                    
@@ -80,6 +81,37 @@
                            overlap = NO;
                        }
                        NSDictionary *authorContent = [postDict objectForKey:@"author"];
+                       [post setValue:postDict[@"authorID"] forKey:@"author"];
+                       [post setValue:authorContent[@"displayName"] forKey:@"authorName"];
+                       [post setValue:postDict[@"date"] forKey:@"date"];
+                       [post setValue:postDict[@"image"] forKey:@"image"]; //b64str
+                       [post setValue:postDict[@"isFeatured"] forKey:@"isFeatured"]; //b
+                       [post setValue:postDict[@"isNew"] forKey:@"isNew"]; //bool
+                       [post setValue:postDict[@"justShowOff"] forKey:@"justShowOff"]; //b
+                       [post setValue:postDict[@"postID"] forKey:@"postID"];
+                       [post setValue:postDict[@"summary"] forKey:@"summary"];
+                       [post setValue:postDict[@"text"] forKey:@"text"];
+                       [post setValue:postDict[@"title"] forKey:@"title"];
+                       [post setValue:postDict[@"type"] forKey:@"type"];
+                       
+                   }
+                   
+                   for (NSDictionary *appDict in appsArray) {
+                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
+                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"postID == %@", appDict[@"postID"]];
+                       
+                       NSError *error = nil;
+                       NSArray *existingPosts = [context executeFetchRequest:fetchRequest error:&error];
+                       NSManagedObject *post = nil;
+                       
+                       if (existingPosts.count > 0) {
+                           post = existingPosts.firstObject;
+                           overlap = YES;
+                       } else {
+                           post = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
+                           overlap = NO;
+                       }
+                       NSDictionary *authorContent = [appDict objectForKey:@"author"];
                        [post setValue:postDict[@"authorID"] forKey:@"author"];
                        [post setValue:authorContent[@"displayName"] forKey:@"authorName"];
                        [post setValue:postDict[@"date"] forKey:@"date"];

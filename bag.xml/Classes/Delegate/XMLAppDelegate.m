@@ -27,7 +27,7 @@
     
     if ([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] == nil) {
         [XMLUtility FLSetSID];
-        [XMLUtility alert:@"Test" withMessage:[NSString stringWithFormat:@"%@\n\n%@", [XMLKeychainUtility loadStringForKey:@"uniqueAppID"], [XMLKeychainUtility loadStringForKey:@"devUUID"]]];
+        [XMLUtility alert:@"Test (X)" withMessage:[NSString stringWithFormat:@"%@\n\n%@", [XMLKeychainUtility loadStringForKey:@"uniqueAppID"], [XMLKeychainUtility loadStringForKey:@"devUUID"]]];
     } else if([XMLKeychainUtility checkStringForKey:@"uniqueAppID"] != nil) {
         //Update check
         NSLog(@"App is authenticated");

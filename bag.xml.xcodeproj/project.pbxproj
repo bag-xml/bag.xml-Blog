@@ -944,6 +944,10 @@
 				GCC_PREFIX_HEADER = "bag.xml/bag.xml-Prefix.pch";
 				INFOPLIST_FILE = "bag.xml/bag.xml-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bag.xml/Libraries/SSL",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -966,6 +970,10 @@
 				GCC_PREFIX_HEADER = "bag.xml/bag.xml-Prefix.pch";
 				INFOPLIST_FILE = "bag.xml/bag.xml-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bag.xml/Libraries/SSL",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

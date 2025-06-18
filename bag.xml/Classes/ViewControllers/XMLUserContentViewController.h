@@ -18,6 +18,10 @@
 
 - (void)setSelectedUser:(XMLUser*)author;
 @property XMLUser *user;
+@property NSInteger userID;
+@property NSMutableArray *posts;
+
+
 
 @property (weak, nonatomic) IBOutlet UILabel *acc;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *dismissal;
