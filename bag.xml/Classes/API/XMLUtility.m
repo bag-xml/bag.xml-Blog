@@ -3,7 +3,7 @@
 //  bag.xml
 //
 //  Created by XML on 12/04/25.
-//  Copyright (c) 2025 Daphne Coemen. All rights reserved.
+//  Copyright (c) 2025 D, Mali Coemen. All rights reserved.
 //
 
 #import "XMLUtility.h"
@@ -50,10 +50,11 @@
 
 + (void)checkForAppUpdate {
     //this is just via the "XML Update Server"
+    
     //disable this if you'd like (check the header)
     if(updateChecks == YES) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/update?v=%@&a=%@&id=%@", kAPIURL, appVersion, CurrentVersionAmalgumHash, [XMLKeychainUtility loadStringForKey:@"uniqueAppID"]]];
+            NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/update?v=%@&client=2&a=%@&b=%@", LUtilityEndpoint ,appVersion, CurrentVersionAmalgumHash, [XMLKeychainUtility loadStringForKey:@"uniqueAppID"]]];
             NSURLResponse *response;
             NSError *error;
             
@@ -63,8 +64,11 @@
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             
             NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
             if(data) {
                 NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                NSLog(@"%@", response);
+                [XMLUtility alert:@"test" withMessage:[NSString stringWithFormat:@"%@", response]];
                 BOOL kill = [response[@"kill"] boolValue];
                 BOOL update = [response[@"update"] boolValue];
                 if(kill)

@@ -3,7 +3,7 @@
 //  bag.xml
 //
 //  Created by bag.xml on 19/06/24.
-//  Copyright (c) 2024 Daphne Coemen. All rights reserved.
+//  Copyright (c) 2024 D, Mali Coemen. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -21,7 +21,8 @@
 #define VERSION_MIN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #define updateChecks YES
-#define kAPIURL @"http://5.230.249.85:5001"
+#define kAPIURL @"http://amber.bag-xml.com:5001"
+#define LUtilityEndpoint @"http://api.bag-xml.com:5000"
 
 #define appVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define CurrentVersionAmalgumHash @"XMLDEBUG"

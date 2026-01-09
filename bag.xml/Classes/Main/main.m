@@ -3,7 +3,7 @@
 //  bag.xml
 //
 //  Created by bag.xml on 19/06/24.
-//  Copyright (c) 2024 Daphne Coemen. All rights reserved.
+//  Copyright (c) 2024 D, Mali Coemen. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

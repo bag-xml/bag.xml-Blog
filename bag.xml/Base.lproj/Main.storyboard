@@ -155,9 +155,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="contentText" destination="OOP-8d-13X" id="p1N-1J-2gK"/>
-                                    <outlet property="dateandName" destination="NMA-lW-S33" id="P47-qN-w7s"/>
-                                    <outlet property="footer" destination="Kjo-Du-JIB" id="gyZ-Dh-JXF"/>
+                                    <outlet property="contentText" destination="OOP-8d-13X" id="TqG-vd-0I4"/>
+                                    <outlet property="dateandName" destination="NMA-lW-S33" id="NmM-hE-UIp"/>
+                                    <outlet property="footer" destination="Kjo-Du-JIB" id="e9D-2J-hY1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="aaaaaaaa" rowHeight="244" id="Suc-pK-647" customClass="XMLHomeTableViewCell">
@@ -933,6 +933,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KLC-ME-jbP"/>
+        <segue reference="GXS-Ea-OF9"/>
     </inferredMetricsTieBreakers>
 </document>

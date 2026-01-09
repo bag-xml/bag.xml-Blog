@@ -1,14 +1,14 @@
 //
-//  XMLUserTableViewCell.m
+//  XMLHomeTableViewCell.m
 //  bag.xml
 //
-//  Created by XML on 27/05/25.
+//  Created by Defne on 7.10.2025.
 //  Copyright (c) 2025 D, Mali Coemen. All rights reserved.
 //
 
-#import "XMLUserTableViewCell.h"
+#import "XMLHomeTableViewCell.h"
 
-@implementation XMLUserTableViewCell
+@implementation XMLHomeTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -3,7 +3,7 @@
 //  bag.xml
 //
 //  Created by XML on 24/04/25.
-//  Copyright (c) 2025 Daphne Coemen. All rights reserved.
+//  Copyright (c) 2025 D, Mali Coemen. All rights reserved.
 //  hell class fuck this shit fuck this shit
 //
 
@@ -96,8 +96,10 @@
                        
                    }
                    
+                   //app cache
                    for (NSDictionary *appDict in appsArray) {
-                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
+                       NSLog(@"%@", appDict);
+                       /*NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
                        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"postID == %@", appDict[@"postID"]];
                        
                        NSError *error = nil;
@@ -123,7 +125,7 @@
                        [post setValue:postDict[@"summary"] forKey:@"summary"];
                        [post setValue:postDict[@"text"] forKey:@"text"];
                        [post setValue:postDict[@"title"] forKey:@"title"];
-                       [post setValue:postDict[@"type"] forKey:@"type"];
+                       [post setValue:postDict[@"type"] forKey:@"type"];*/
                        
                    }
                    
