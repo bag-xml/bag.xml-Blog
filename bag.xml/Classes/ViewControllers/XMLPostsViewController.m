@@ -29,6 +29,7 @@
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadPosts) name:@"REFRESH" object:nil];
     //Initiate Post Load Sequence
     [self loadPosts];
+    NSLog(@"load post");
     //Visual
     if(IS_IPHONE_5) {
         self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"A-TableViewBG@R4"]];
@@ -41,6 +42,7 @@
 }
 
 - (void)loadPosts {
+    NSLog(@"load post");
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         XMLAppDelegate *appDelegate = (XMLAppDelegate *)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = appDelegate.managedObjectContext;
@@ -77,7 +79,7 @@
             newPost.tCH = textSize.height + 75;
             
             //lets say we also want to create an XMLUser property. we do have newPost.authorID, and in the keychain under the User entity you can fetch the user with the id. Well, go ahead and implement that.
-            
+            NSLog(@"how many times?");
             [self.posts addObject:newPost];
         }
         
@@ -98,6 +100,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%i", self.posts.count);
     return self.posts.count;
 }
 

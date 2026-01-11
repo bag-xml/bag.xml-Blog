@@ -11,8 +11,15 @@
 #import "XMLUtility.h"
 #import "XMLUser.h"
 #import "XMLPost.h"
+#import "XMLApp.h"
+
+#import "XMLPostCell.h"
+#import "XMLAPPCELL.h"
+
+#import "XMLAppViewController.h"
 
 #import "XMLAppDelegate.h"
+#import "XMLDetailController.h"
 
 @interface XMLUserContentViewController : UITableViewController
 
@@ -20,6 +27,7 @@
 @property XMLUser *user;
 @property NSInteger userID;
 @property NSMutableArray *posts;
+@property NSMutableArray *apps;
 
 
 

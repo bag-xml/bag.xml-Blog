@@ -10,4 +10,19 @@
 
 @interface XMLApp : NSObject
 
+@property int appID;
+@property int authorID;
+@property int *categoryID;
+
+@property NSString *appName;
+@property NSString *authorName;
+@property NSString *categoryName;
+@property NSString *date;
+@property NSString *desc;
+@property NSString *icon;
+@property UIImage *appIcon;
+@property NSString *itmlLink;
+@property NSString *publisher;
+@property NSString *version;
+
 @end

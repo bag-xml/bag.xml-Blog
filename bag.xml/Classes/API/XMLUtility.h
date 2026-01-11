@@ -9,6 +9,11 @@
 #import "XMLAppDelegate.h"
 #import "XMLKeychainUtility.h"
 #import "XMLObjectRetriever.h"
+
+#import "XMLUser.h"
+#import "XMLPost.h"
+#import "XMLApp.h"
+
 #import "Base64.h"
 
 @interface XMLUtility : NSObject

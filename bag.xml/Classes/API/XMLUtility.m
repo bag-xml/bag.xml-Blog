@@ -17,6 +17,7 @@
         CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
         
         NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/setUID?uuid=%@", kAPIURL, (__bridge_transfer NSString *)uuidStringRef]];
+        NSLog(@"%@", randomEndpoint);
         CFRelease(uuidRef);
         NSURLResponse *response;
         NSError *error;
@@ -67,15 +68,17 @@
             
             if(data) {
                 NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-                NSLog(@"%@", response);
-                [XMLUtility alert:@"test" withMessage:[NSString stringWithFormat:@"%@", response]];
-                BOOL kill = [response[@"kill"] boolValue];
-                BOOL update = [response[@"update"] boolValue];
+                NSDictionary *innerData = response[@"data"];
+                
+                // Get values
+                BOOL kill = [innerData[@"kill"] boolValue];
+                
+                BOOL update = [innerData[@"update"] boolValue];
                 if(kill)
                     exit(0);
                 
                 if(update) {
-                    [self alert:response[@"outdateHead"] withMessage:response[@"text"]];
+                    //[self alert:innerData[@"title"] withMessage:innerData[@"message"]];
                 }
             } else {
                 return;

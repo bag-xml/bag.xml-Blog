@@ -18,9 +18,10 @@
         NSLog(@"Auth Check Success");
        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            
-           NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/total?a=%@&id=%@", kAPIURL, CurrentVersionAmalgumHash, [XMLKeychainUtility loadStringForKey:@"uniqueAppID"]]];
+           NSURL *randomEndpoint = [NSURL URLWithString:[NSString stringWithFormat:@"%@/amber/object?a=%@&b=%@&c=%@&client=2", kAPIURL, CurrentVersionAmalgumHash, [XMLKeychainUtility loadStringForKey:@"uniqueAppID"], appVersion]];
            NSURLResponse *response;
            NSError *error;
+           NSLog(@"%@", randomEndpoint);
            
            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
            [request setURL:randomEndpoint];
@@ -30,6 +31,7 @@
            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error]; //wtf
            if(data) {
                NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+               //NSLog(@"%@", response);
                if([response[@"success"] boolValue] == NO) {
                    [XMLUtility alert:@"An error occured" withMessage:@"Please try again later"];
                    return;
@@ -99,33 +101,41 @@
                    //app cache
                    for (NSDictionary *appDict in appsArray) {
                        NSLog(@"%@", appDict);
-                       /*NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
-                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"postID == %@", appDict[@"postID"]];
+                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"App"];
+                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"appID == %@", appDict[@"appID"]];
                        
                        NSError *error = nil;
-                       NSArray *existingPosts = [context executeFetchRequest:fetchRequest error:&error];
-                       NSManagedObject *post = nil;
+                       NSArray *existingApps = [context executeFetchRequest:fetchRequest error:&error];
+                       NSManagedObject *app = nil;
                        
-                       if (existingPosts.count > 0) {
-                           post = existingPosts.firstObject;
+                       if (existingApps.count > 0) {
+                           app = existingApps.firstObject;
                            overlap = YES;
                        } else {
-                           post = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
+                           app = [NSEntityDescription insertNewObjectForEntityForName:@"App" inManagedObjectContext:context];
                            overlap = NO;
                        }
                        NSDictionary *authorContent = [appDict objectForKey:@"author"];
-                       [post setValue:postDict[@"authorID"] forKey:@"author"];
-                       [post setValue:authorContent[@"displayName"] forKey:@"authorName"];
-                       [post setValue:postDict[@"date"] forKey:@"date"];
-                       [post setValue:postDict[@"image"] forKey:@"image"]; //b64str
-                       [post setValue:postDict[@"isFeatured"] forKey:@"isFeatured"]; //b
-                       [post setValue:postDict[@"isNew"] forKey:@"isNew"]; //bool
-                       [post setValue:postDict[@"justShowOff"] forKey:@"justShowOff"]; //b
-                       [post setValue:postDict[@"postID"] forKey:@"postID"];
-                       [post setValue:postDict[@"summary"] forKey:@"summary"];
-                       [post setValue:postDict[@"text"] forKey:@"text"];
-                       [post setValue:postDict[@"title"] forKey:@"title"];
-                       [post setValue:postDict[@"type"] forKey:@"type"];*/
+                       NSDictionary *category = [appDict objectForKey:@"category"];
+                       [app setValue:appDict[@"appID"] forKey:@"appID"];
+                       [app setValue:appDict[@"authorID"] forKey:@"authorID"];
+                       [app setValue:category[@"categoryID"] forKey:@"categoryID"];
+                       
+                       [app setValue:authorContent[@"displayName"] forKey:@"authorName"];
+                       [app setValue:category[@"categoryName"] forKey:@"categoryName"];
+                       [app setValue:appDict[@"name"] forKey:@"appName"];
+                       
+                       [app setValue:appDict[@"publisher"] forKey:@"publisher"];
+                       [app setValue:appDict[@"version"] forKey:@"version"];
+                       [app setValue:appDict[@"description"] forKey:@"desc"];
+                       [app setValue:appDict[@"date"] forKey:@"date"];
+                       [app setValue:appDict[@"icon"] forKey:@"icon"];
+                       [app setValue:appDict[@"itmlLink"] forKey:@"itmlLink"];
+                       
+                       
+                       
+                       
+                       
                        
                    }
                    

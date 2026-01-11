@@ -91,6 +91,15 @@
 		5B6C2E372C231D9400CE7732 /* AboutTableBG@R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6C2E332C231D9400CE7732 /* AboutTableBG@R4.png */; };
 		5BB8E4B12C3D8BA600593D5F /* DarkUITitleBarBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB8E4AF2C3D8BA600593D5F /* DarkUITitleBarBG.png */; };
 		5BB8E4B22C3D8BA600593D5F /* DarkUITitleBarBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BB8E4B02C3D8BA600593D5F /* DarkUITitleBarBG@2x.png */; };
+		901080522F1279AD00A9AB90 /* XMLAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901080512F1279AD00A9AB90 /* XMLAppViewController.m */; };
+		901080552F13E76700A9AB90 /* XMLAppTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901080542F13E76700A9AB90 /* XMLAppTabViewController.m */; };
+		901871202F11302600C2D730 /* avatarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9018711E2F11302600C2D730 /* avatarShadow.png */; };
+		901871212F11302600C2D730 /* avatarShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9018711F2F11302600C2D730 /* avatarShadow@2x.png */; };
+		901871242F1139B400C2D730 /* XMLAPPCELL.m in Sources */ = {isa = PBXBuildFile; fileRef = 901871232F1139B400C2D730 /* XMLAPPCELL.m */; };
+		9018712D2F11969800C2D730 /* uplainSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 901871292F11969800C2D730 /* uplainSeparator.png */; };
+		9018712E2F11969800C2D730 /* uplainSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9018712A2F11969800C2D730 /* uplainSeparator@2x.png */; };
+		9018712F2F11969800C2D730 /* userLandseparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 9018712B2F11969800C2D730 /* userLandseparator.png */; };
+		901871302F11969800C2D730 /* userLandseparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9018712C2F11969800C2D730 /* userLandseparator@2x.png */; };
 		904AB0E02E95A942003F9961 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 904AB0DF2E95A942003F9961 /* Base64.m */; };
 		904AB0E32E95A983003F9961 /* XMLHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 904AB0E22E95A983003F9961 /* XMLHomeTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -214,6 +223,18 @@
 		5B6C2E332C231D9400CE7732 /* AboutTableBG@R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutTableBG@R4.png"; sourceTree = "<group>"; };
 		5BB8E4AF2C3D8BA600593D5F /* DarkUITitleBarBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkUITitleBarBG.png; sourceTree = "<group>"; };
 		5BB8E4B02C3D8BA600593D5F /* DarkUITitleBarBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DarkUITitleBarBG@2x.png"; sourceTree = "<group>"; };
+		901080502F1279AD00A9AB90 /* XMLAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAppViewController.h; sourceTree = "<group>"; };
+		901080512F1279AD00A9AB90 /* XMLAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAppViewController.m; sourceTree = "<group>"; };
+		901080532F13E76700A9AB90 /* XMLAppTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAppTabViewController.h; sourceTree = "<group>"; };
+		901080542F13E76700A9AB90 /* XMLAppTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAppTabViewController.m; sourceTree = "<group>"; };
+		9018711E2F11302600C2D730 /* avatarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatarShadow.png; sourceTree = "<group>"; };
+		9018711F2F11302600C2D730 /* avatarShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatarShadow@2x.png"; sourceTree = "<group>"; };
+		901871222F1139B400C2D730 /* XMLAPPCELL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAPPCELL.h; sourceTree = "<group>"; };
+		901871232F1139B400C2D730 /* XMLAPPCELL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAPPCELL.m; sourceTree = "<group>"; };
+		901871292F11969800C2D730 /* uplainSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uplainSeparator.png; sourceTree = "<group>"; };
+		9018712A2F11969800C2D730 /* uplainSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uplainSeparator@2x.png"; sourceTree = "<group>"; };
+		9018712B2F11969800C2D730 /* userLandseparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userLandseparator.png; sourceTree = "<group>"; };
+		9018712C2F11969800C2D730 /* userLandseparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userLandseparator@2x.png"; sourceTree = "<group>"; };
 		904AB0DE2E95A942003F9961 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		904AB0DF2E95A942003F9961 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		904AB0E12E95A983003F9961 /* XMLHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHomeTableViewCell.h; sourceTree = "<group>"; };
@@ -289,6 +310,10 @@
 				0AF66F7E2DD9FDAE00F5E204 /* XMLDetailController.m */,
 				0A04DEA42DE8A4F400B02B27 /* XMLUserContentViewController.h */,
 				0A04DEA52DE8A4F400B02B27 /* XMLUserContentViewController.m */,
+				901080502F1279AD00A9AB90 /* XMLAppViewController.h */,
+				901080512F1279AD00A9AB90 /* XMLAppViewController.m */,
+				901080532F13E76700A9AB90 /* XMLAppTabViewController.h */,
+				901080542F13E76700A9AB90 /* XMLAppTabViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -327,6 +352,8 @@
 				0AF5CAD72DE60BA3009E11AB /* XMLUserTableViewCell.m */,
 				904AB0E12E95A983003F9961 /* XMLHomeTableViewCell.h */,
 				904AB0E22E95A983003F9961 /* XMLHomeTableViewCell.m */,
+				901871222F1139B400C2D730 /* XMLAPPCELL.h */,
+				901871232F1139B400C2D730 /* XMLAPPCELL.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -610,6 +637,12 @@
 		5B6C2E2E2C231D9400CE7732 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
+				901871292F11969800C2D730 /* uplainSeparator.png */,
+				9018712A2F11969800C2D730 /* uplainSeparator@2x.png */,
+				9018712B2F11969800C2D730 /* userLandseparator.png */,
+				9018712C2F11969800C2D730 /* userLandseparator@2x.png */,
+				9018711E2F11302600C2D730 /* avatarShadow.png */,
+				9018711F2F11302600C2D730 /* avatarShadow@2x.png */,
 				0A796D352DE852A300BE6561 /* PTavataroverlay.png */,
 				0A680D2E2DE7701F00AA7258 /* fancySEP.png */,
 				0A680D2F2DE7701F00AA7258 /* fancySEP@2x.png */,
@@ -724,6 +757,7 @@
 				5B6C2E232C231C4700CE7732 /* Images.xcassets in Resources */,
 				0A04DEB62DE8A85B00B02B27 /* UINavigationBarDoneButtonPressed@2x.png in Resources */,
 				5B6C2E352C231D9400CE7732 /* AboutTableBG.png in Resources */,
+				9018712E2F11969800C2D730 /* uplainSeparator@2x.png in Resources */,
 				5B3144262C39FA0600C5C102 /* BarNews.png in Resources */,
 				5B1A21912D05CBA8007BD6CE /* A-TableViewBG-iOS7@R4.png in Resources */,
 				0A796D372DE852A300BE6561 /* PTavataroverlay.png in Resources */,
@@ -754,6 +788,7 @@
 				0A04DEB32DE8A85B00B02B27 /* UINavigationBarDoneButton.png in Resources */,
 				0AF5CAD12DE602D7009E11AB /* BlogFeatureFloor.png in Resources */,
 				0A796D3A2DE8723100BE6561 /* Screen Shot 2025-05-29 at 12.44.45.png in Resources */,
+				9018712D2F11969800C2D730 /* uplainSeparator.png in Resources */,
 				5B0964392C283695003FDF15 /* PlaceholderJolt.png in Resources */,
 				0A680D312DE7701F00AA7258 /* fancySEP@2x.png in Resources */,
 				0AF5CAD32DE6078D009E11AB /* LetraContent.png in Resources */,
@@ -761,6 +796,10 @@
 				5B4186122C38BF2A0000A3AC /* D-ControlState.png in Resources */,
 				5B6C2DFD2C23197500CE7732 /* Main.storyboard in Resources */,
 				5B1A21872D05B46E007BD6CE /* felt-separator-ios7.png in Resources */,
+				901871212F11302600C2D730 /* avatarShadow@2x.png in Resources */,
+				901871202F11302600C2D730 /* avatarShadow.png in Resources */,
+				9018712F2F11969800C2D730 /* userLandseparator.png in Resources */,
+				901871302F11969800C2D730 /* userLandseparator@2x.png in Resources */,
 				0A04DEB52DE8A85B00B02B27 /* UINavigationBarDoneButtonPressed.png in Resources */,
 				0AD0C49C2DE5EB1C002CC84D /* NewReleaseSablone.png in Resources */,
 				5B3144222C39F87500C5C102 /* BarHome.png in Resources */,
@@ -790,6 +829,7 @@
 				0ACB92872DD4AE7B0009FDD2 /* XMLFeaturedController.m in Sources */,
 				0A1349742DB147FE00A45FA4 /* XMLKeychainUtility.m in Sources */,
 				0A14E2B32DD1005E00F72409 /* XMLObjectTestView.m in Sources */,
+				901871242F1139B400C2D730 /* XMLAPPCELL.m in Sources */,
 				0AE3C2A42DEC6C4F00DF62A5 /* XMLApp.m in Sources */,
 				5B6C2E2B2C231C4C00CE7732 /* main.m in Sources */,
 				5B6C2E2A2C231C4C00CE7732 /* XMLAppDelegate.m in Sources */,
@@ -800,8 +840,10 @@
 				904AB0E02E95A942003F9961 /* Base64.m in Sources */,
 				0A29FC952DE3452F00EEAE36 /* XMLPostCell.m in Sources */,
 				5B2594342C380DC20081AD40 /* SVProgressHUD.m in Sources */,
+				901080552F13E76700A9AB90 /* XMLAppTabViewController.m in Sources */,
 				0AB0DD852DBE52B400136528 /* XMLCoreDataModel.xcdatamodeld in Sources */,
 				0AF5CAD82DE60BA3009E11AB /* XMLUserTableViewCell.m in Sources */,
+				901080522F1279AD00A9AB90 /* XMLAppViewController.m in Sources */,
 				0ACB92842DD4AA700009FDD2 /* XMLPost.m in Sources */,
 				0AECF7FE2DD4ECE30021F3F4 /* XMLPostsViewController.m in Sources */,
 				5B15B8E12C3403F2003EA53D /* UIColor+BButton.m in Sources */,

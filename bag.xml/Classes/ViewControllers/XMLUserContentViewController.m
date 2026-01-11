@@ -70,12 +70,27 @@
         return;
     }
     
+    NSFetchRequest *appRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *appEntity =
+    [NSEntityDescription entityForName:@"App"
+                inManagedObjectContext:context];
+    
+    [appRequest setEntity:appEntity];
+    NSArray *appResults =
+    [context executeFetchRequest:appRequest error:&error];
+    
+    if (appResults == nil) {
+        NSLog(@"App fetch error: %@", error);
+    }
+
+    
     self.posts = [[NSMutableArray alloc] init];
+    self.apps = [[NSMutableArray alloc] init];
     
     for (NSManagedObject *post in results) {
         XMLPost *newPost = XMLPost.new;
 
-        
         newPost.title = [post valueForKey:@"title"];
         newPost.date = [post valueForKey:@"date"];
         newPost.text = [post valueForKey:@"text"];
@@ -86,6 +101,10 @@
         newPost.isFeatured = [[post valueForKey:@"isFeatured"] boolValue];
         newPost.isNew = [[post valueForKey:@"isNew"] boolValue];
         newPost.justShowOff = [[post valueForKey:@"justShowOff"] boolValue];
+        
+        if ([[post valueForKey:@"justShowOff"] boolValue]) {
+            continue; // skip this post
+        }
         
         newPost.type = [[post valueForKey:@"type"] intValue];
         newPost.postID = [[post valueForKey:@"postID"] intValue];
@@ -100,11 +119,38 @@
         [self.posts addObject:newPost];
     }
     
+    for (NSManagedObject *app in appResults) {
+        NSLog(@"%@", app);
+        XMLApp *newApp = XMLApp.new;
+        
+        newApp.appID = [[app valueForKey:@"appID"] intValue];
+        newApp.authorID = [[app valueForKey:@"authorID"] intValue];
+        
+        newApp.appName = [app valueForKey:@"appName"];
+        newApp.authorName = [app valueForKey:@"authorName"];
+        newApp.date = [app valueForKey:@"date"];
+        newApp.desc = [app valueForKey:@"desc"];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *base64String = [[app valueForKey:@"icon"] stringByReplacingOccurrencesOfString:@"data:image/png;base64," withString:@""];
+            NSData *imageData = [NSData dataWithBase64EncodedString:base64String];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                newApp.appIcon = [UIImage imageWithData:imageData];
+            });
+        });
+        
+        newApp.itmlLink = [app valueForKey:@"itmlLink"];
+        newApp.publisher = [app valueForKey:@"publisher"];
+        newApp.version = [app valueForKey:@"version"];
+        
+        [self.apps addObject:newApp];
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
     
-    NSLog(@"Fetched %d posts", [self.posts count]);
+    NSLog(@"Fetched %d posts and %d apps", [self.posts count], [self.apps count]);
 }
 
 
@@ -126,8 +172,11 @@
         }
         return count;
     } else if(section == 2) {
-        //apps arent implemented
-        return 0;
+        NSInteger count = 0;
+        for(XMLApp *app in self.apps) {
+            count++;
+        }
+        return count;
     }
     
     return 0;
@@ -138,22 +187,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 28.0;
+    return 43.5;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 43.5)];
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:headerView.bounds];
     backgroundImageView.contentMode = UIViewContentModeScaleToFill;
+    backgroundImageView.image = [UIImage imageNamed:@"uplainSeparator"];
+    [headerView addSubview:backgroundImageView];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width - 20, 18)];
-    label.textColor = [UIColor colorWithRed:158.0/255.0 green:159.0/255.0 blue:159.0/255.0 alpha:1.0];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width - 20, 43.5)];
+    label.textColor = [UIColor colorWithRed:67.0/255.0 green:67.0/255.0 blue:67.0/255.0 alpha:1.0];
     
-    label.layer.shadowColor = [UIColor blackColor].CGColor;
+    label.layer.shadowColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
     label.layer.shadowOffset = CGSizeMake(0, 1);
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:16];
+    label.font = [UIFont boldSystemFontOfSize:18.0];
+
     
     [headerView addSubview:backgroundImageView];
     if (section == 0) {
@@ -171,25 +223,71 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XMLPost *currentPost = self.posts[indexPath.row];
     if (indexPath.section == 0) { //type 2
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POST"];
-        cell.textLabel.text = currentPost.title;
-        cell.detailTextLabel.text = currentPost.summary;
+        XMLPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"POST"];
+        cell.heading.text = currentPost.title;
+        cell.spoiler.text = [NSString stringWithFormat:@"by %@ :: %@", currentPost.authorName, currentPost.date];
+        cell.count.text = [NSString stringWithFormat:@"%d", indexPath.row + 1];
+        BOOL isLastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+        cell.separato.hidden = isLastRow;
+
         
         return cell;
     } else if (indexPath.section == 1) { //type 3
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RELEASE"];
-        cell.textLabel.text = currentPost.title;
-        cell.detailTextLabel.text = currentPost.summary;
+        XMLPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RELEASE"];
+        cell.heading.text = currentPost.title;
+        cell.spoiler.text = [NSString stringWithFormat:@"by %@ :: %@", currentPost.authorName, currentPost.date];
+        cell.count.text = [NSString stringWithFormat:@"%d", indexPath.row + 1];
+        BOOL isLastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+        cell.separato.hidden = isLastRow;
+
         
         return cell;
     } else if (indexPath.section == 2) { //app
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"APP"];
-        cell.textLabel.text = @"s31";
-        cell.detailTextLabel.text = @"samsung galax y s13";
+        XMLApp *currentApp = self.apps[indexPath.row];
+        XMLAPPCELL *cell = [tableView dequeueReusableCellWithIdentifier:@"APP"];
+        cell.appIcon.image = [UIImage imageNamed:@"Display-App-Icon"];
+        cell.title.text = currentApp.appName;
+        cell.count.text = [NSString stringWithFormat:@"%d", indexPath.row + 1];
+        cell.spoiler.text = [NSString stringWithFormat:@"%@ :: by %@",currentApp.version, currentApp.authorName];
+        BOOL isLastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+        cell.separator.hidden = isLastRow;
         
         return cell;
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 || indexPath.section == 1) {
+        XMLPost *currentPost = self.posts[indexPath.row];
+        if(currentPost.justShowOff == NO) {
+            //prepare for segue to post view.
+            [self performSegueWithIdentifier:@"to Post" sender:self];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    } else if(indexPath.section == 2) {
+        [self performSegueWithIdentifier:@"to App" sender:self];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"to Post"]){
+        
+        //need index path as XMLPost property in setSelectedPost
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        XMLPost *selectedPost = self.posts[selectedIndexPath.row];
+        [((XMLDetailController*)segue.destinationViewController) setSelectedPost:selectedPost];
+    } else if([segue.identifier isEqualToString:@"to App"]){
+        //need index path as XMLPost property in setSelectedPost
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        NSLog(@"ERROR");
+        XMLApp *selectedApp = self.apps[selectedIndexPath.row];
+        [((XMLAppViewController*)segue.destinationViewController) setSelectedApp:selectedApp];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 81;
 }
 
 @end

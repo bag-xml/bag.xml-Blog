@@ -21,7 +21,7 @@
 #define VERSION_MIN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #define updateChecks YES
-#define kAPIURL @"http://amber.bag-xml.com:5001"
+#define kAPIURL @"http://api.bag-xml.com:5000"
 #define LUtilityEndpoint @"http://api.bag-xml.com:5000"
 
 #define appVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
